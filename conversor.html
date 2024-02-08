@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.1.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel="shortcut icon" href="/img/calculadora.svg"  type="image/x-icon">
+    <title>Conversor Binario</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <section class="text-gray-400 bg-gray-900 body-font font-medium text-2xl pb-8">
+                <div class="container mx-auto flex pt-10 md:flex-row flex-col items-center justify-center">
+                    <i class="fi fi-rr-calculator"></i>
+                    <a href="index.html" class="ml-8">CONVERSOR BINARIO</a>
+                </div>
+            </section>
+        </nav>
+    </header>
+    <main>
+        <section class="text-gray-400 bg-gray-900 body-font">
+            <div class="container h-5/6 py-24 mx-auto flex px-5 py-12 md:flex-row flex-col">
+                <div class="w-full items-start flex flex-col justify-center md:w-1/2 lg:w-2/6">
+                    <div class="mb-10">
+                        <label for="sistemaNum" class="block text-sm font-medium">Selecciona el Sistema Numérico de tu Número</label>
+                        <select name="sistemaNum" id="sistemaNum" onchange="obtenerOpcion()" class="mt-1.5 w-full g-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option value="DL">Decimal</option>
+                            <option value="BO">Binario</option>
+                            <option value="OL">Octal</option>
+                            <option value="HL">Hexadecimal</option>
+                        </select>
+                    </div>
+                    <div class="mt-14">
+                        <form class="">
+                            <label for="number-input" class="block mb-2 text-sm font-medium">Número a convertir</label>
+                            <input type="text" id="number-input" oninput="this.value = this.value.replace(/[^0-9]/g, '');" aria-describedby="helper-text-explanation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                        </form>
+                        <button class="mt-4 inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded-lg text-lg" onclick="convertir()">Calcular</button>
+                    </div>
+                </div>
+                <div class="w-full mb-10 flex flex-col md:w-1/2 lg:w-4/6">
+                    <span class="flex items-center">
+                        <span class="h-px flex-1 bg-gray-400"></span>
+                        <span class="pl-6">Lista de Resultados</span>
+                    </span>
+                    <div class="relative overflow-x-auto mt-6">
+                        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                            <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3 rounded-tl-lg">
+                                        Sistema Númerico
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 rounded-tr-lg">
+                                        Conversion
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="bg-gray-800">
+                                    <th id="thBinario" scope="row" class="px-6 py-4 font-medium text-gray-400 whitespace-nowrap">
+                                        Binario
+                                    </th>
+                                    <td id="inputBinario" class="px-6 py-4">
+                                        0
+                                    </td>
+                                </tr>
+                                <tr class="bg-white dark:bg-gray-800">
+                                    <th id="thDecimal" scope="row" class="px-6 py-4 font-medium text-gray-400 whitespace-nowrap">
+                                        Decimal
+                                    </th>
+                                    <td id="inputDecimal" class="px-6 py-4">
+                                        0
+                                    </td>
+                                </tr>
+                                <tr class="bg-white dark:bg-gray-800">
+                                    <th id="thOctal" scope="row" class="px-6 py-4 font-medium text-gray-400 whitespace-nowrap">
+                                        Octal
+                                    </th>
+                                    <td id="inputOctal" class="px-6 py-4">
+                                        0
+                                    </td>
+                                </tr>
+                                <tr class="bg-white dark:bg-gray-800">
+                                    <th id="thHexadecimal" scope="row" class="px-6 py-4 font-medium text-gray-400 whitespace-nowrap rounded-bl-lg">
+                                        Hexadecimal
+                                    </th>
+                                    <td id="inputHexadecimal" class="px-6 py-4 rounded-br-lg">
+                                        0
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>   
+    </main>
+    <script src="/scripts/opcion.js"></script>
+    <script src="/scripts/conversor.js"></script>
+</body>
+</html>
